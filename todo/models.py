@@ -9,4 +9,4 @@ class Task(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
-        return self.title
+        return self.task
