@@ -39,7 +39,3 @@ GitHub.sublime-settings
 !.vscode/launch.json
 !.vscode/extensions.json
 .history
-
-# What we are ignoring and not with this Django .gitignore
-# Migrations
-# A common question is: "why aren't we ignoring migrations?". Wouldn't it make sense to create the migrations on the server and then migrate them right away? Yes, in some cases that would make sense, but there is a big issue with that. You will always want to have the same migrations on your development machine as on the server. Imagine this: you want a field to be False for every record.
