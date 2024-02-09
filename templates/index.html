@@ -43,7 +43,7 @@
                         
                         <span style="position: relative; float: right;">
                             <a class="btn btn-success" href="{% url 'markDone' task.pk %}"><i class="fa fa-check"></i> Mark as Done</a>
-                            <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-danger" href="{% url 'deleteTask' task.pk %}"><i class="fa fa-trash"></i></a>
                             <a class="btn btn-primary" href="{% url 'editTask' task.pk %}" id="editTask"><i class="fa fa-pencil"></i></a>
                         </span>
                     </div>
