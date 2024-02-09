@@ -30,47 +30,35 @@
             <h4>My Day</h4>
             <p class="text-muted">{% now "jS F Y" %}</p>
             <div class="col-md-7 col-lg-7" style="height: 450px; overflow: scroll;">
-                <!-- List of all the tasks for the day -->
-
-
-
                 {% for task in incompletedTasks %}
-                <div class="card m-1">
-                    <div class="card-body">
-                        <span style="position: relative; float: left;">
-                            <div class="p-0">{{task.task|truncatechars:40}}</div>
-                        </span>
-                        
-                        <span style="position: relative; float: right;">
+                <div class="list-group">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{task.task|truncatechars:40}}
+                          <span style="position: relative; float: right;">
                             <a class="btn btn-success" href="{% url 'markDone' task.pk %}"><i class="fa fa-check"></i> Mark as Done</a>
                             <a class="btn btn-danger" href="{% url 'deleteTask' task.pk %}"><i class="fa fa-trash"></i></a>
                             <a class="btn btn-primary" href="{% url 'editTask' task.pk %}" id="editTask"><i class="fa fa-pencil"></i></a>
                         </span>
-                    </div>
+                        </li>
+                      </ul>
                 </div>
                 {% endfor %}
-
-
-
-
-
-
-
             </div>
             <div class="col-md-5 col-lg-5">
                 <h5>Completed Tasks</h5>
-                <!-- List of all the tasks that have completed -->
+                
                 {% for task in completedTasks %}
-                <div class="card m-1">
-                    <div class="card-body">
-                        <div class="align-middle" style="display: inline-block;">
+                
+                <div class="list-group">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
                             {{task.task|truncatechars:40}}
-                        </div>
-                        
-                        <span style="position: relative; float: right;">
-                            <a class="btn btn-danger" href="{% url 'markPending' task.pk %}"><i class="fa fa-close"></i> Mark as incompleted</a>
-                        </span>
-                    </div>
+                            <span style="position: relative; float: right;">
+                                <a class="btn btn-danger" href="{% url 'markPending' task.pk %}"><i class="fa fa-close"></i> Mark as incompleted</a>
+                            </span>
+                        </li>
+                      </ul>
                 </div>
                 {% endfor %}
             </div>
