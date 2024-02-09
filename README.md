@@ -48,6 +48,10 @@ Now, you should be able to see the application running at localhost:8000 in your
 
 - Django - The web framework
 
+## Screenshot
+
+![Alt text](https://github.com/alemansrao/ToDo-App/blob/main/screenshot.png "Screenshot of the Site")
+
 
 ## License
 
