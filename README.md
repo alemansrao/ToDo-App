@@ -53,7 +53,4 @@ Now, you should be able to see the application running at localhost:8000 in your
 ![Alt text](https://github.com/alemansrao/ToDo-App/blob/main/screenshot.png "Screenshot of the Site")
 
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details
 
