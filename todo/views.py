@@ -7,7 +7,6 @@ from todo.models import Task
 
 def addTask(request):
     taskString = request.POST.get('task')
-    Task.objects.create(task=taskString)
-    # Task.save()
-
-    return redirect("home")
+    if taskString != '':
+        Task.objects.create(task=taskString)
+        return redirect("home")

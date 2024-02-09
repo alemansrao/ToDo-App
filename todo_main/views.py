@@ -5,7 +5,7 @@ from todo.models import Task
 
 
 def home(request):
-    incompletedTasks = Task.objects.filter(is_completed=False)
+    incompletedTasks = Task.objects.filter(is_completed=False).order_by("-modified_at")
     completedTasks = Task.objects.filter(is_completed=True)
     context ={
         "incompletedTasks":incompletedTasks,

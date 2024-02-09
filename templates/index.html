@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,17 +8,21 @@
     <title>TODO LIST - Home</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <style>
-        .form-control{
-        padding: 1.375rem .75rem !important;
-    }
+        .form-control {
+            padding: 1.375rem .75rem !important;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h3 class="pt-5 text-center">Django ToDo App</h3>
@@ -27,9 +31,9 @@
             <p class="text-muted">{% now "jS F Y" %}</p>
             <div class="col-md-7 col-lg-7" style="height: 450px; overflow: scroll;">
                 <!-- List of all the tasks for the day -->
-                
-                
-                
+
+
+
                 {% for task in incompletedTasks %}
                 <div class="card m-1">
                     <div class="card-body">
@@ -42,8 +46,8 @@
                     </div>
                 </div>
                 {% endfor %}
-                
-               
+
+
 
 
 
@@ -61,7 +65,7 @@
                         </div>
                         <span style="position: relative; float: right;">
                             <a class="btn btn-danger"><i class="fa fa-close"></i> Mark as incompleted</a>
-                            </span>
+                        </span>
                     </div>
                 </div>
                 {% endfor %}
@@ -74,13 +78,31 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <span style="display: flex;">
-                            <input type="text" name="task"  class="form-control" placeholder="Add a task">
-                            <button type="submit" class="btn btn-primary" style="width: 200px;"><i class="fa fa-plus"></i> Add</button>
+                            <input type="text" name="task" id="taskInput" class="form-control" placeholder="Add a task">
+                            <button type="submit" id="newTaskBtn" class="btn btn-primary disabled" style="width: 200px;"><i
+                                    class="fa fa-plus"></i> Add</button>
                         </span>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        // Get references to the input box and button
+        let inputBox = document.getElementById('taskInput');
+        let button = document.getElementById('newTaskBtn');
+        // Add an event listener for input change
+        inputBox.addEventListener('input', function () {
+            if (inputBox.value === '') {
+                // Disable the button if the input box is empty
+                button.classList.add("disabled")
+            } else {
+                // Enable the button if the input box is not empty
+                button.classList.remove("disabled")
+            }
+        });
+
+    </script>
 </body>
+
 </html>
