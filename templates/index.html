@@ -37,11 +37,14 @@
                 {% for task in incompletedTasks %}
                 <div class="card m-1">
                     <div class="card-body">
-                        {{task.task}}
+                        <span style="position: relative; float: left;">
+                            <div class="p-0">{{task.task|truncatechars:40}}</div>
+                        </span>
+                        
                         <span style="position: relative; float: right;">
-                            <a class="btn btn-success"><i class="fa fa-check"></i> Mark as Done</a>
+                            <a class="btn btn-success" href="{% url 'markDone' task.pk %}"><i class="fa fa-check"></i> Mark as Done</a>
                             <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                            <a class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-primary" href="{% url 'editTask' task.pk %}" id="editTask"><i class="fa fa-pencil"></i></a>
                         </span>
                     </div>
                 </div>
@@ -61,10 +64,11 @@
                 <div class="card m-1">
                     <div class="card-body">
                         <div class="align-middle" style="display: inline-block;">
-                            {{task.task}}
+                            {{task.task|truncatechars:40}}
                         </div>
+                        
                         <span style="position: relative; float: right;">
-                            <a class="btn btn-danger"><i class="fa fa-close"></i> Mark as incompleted</a>
+                            <a class="btn btn-danger" href="{% url 'markPending' task.pk %}"><i class="fa fa-close"></i> Mark as incompleted</a>
                         </span>
                     </div>
                 </div>
@@ -101,6 +105,8 @@
                 button.classList.remove("disabled")
             }
         });
+
+       
 
     </script>
 </body>
