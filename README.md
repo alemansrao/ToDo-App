@@ -30,7 +30,7 @@ A step by step series of examples that tell you how to get a development environ
     ```
 2. Navigate into the directory
     ```bash
-    cd <directory-name>
+    cd ToDo-App
     ```
 3. Run the server
     ```bash
