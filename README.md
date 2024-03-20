@@ -32,15 +32,16 @@ A step by step series of examples that tell you how to get a development environ
     ```bash
     cd ToDo-App
     ```
-3. Run the server
-    ```bash
-    python manage.py runserver
-    ```
-4. Migrate the models
+3. Migrate the models
     ```bash
     python manage.py makemigrations
     python manage.py migrate
     ```
+4. Run the server
+    ```bash
+    python manage.py runserver
+    ```
+
 
 Now, you should be able to see the application running at localhost:8000 in your web browser.
 
